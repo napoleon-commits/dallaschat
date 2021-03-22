@@ -34,16 +34,26 @@ export default {
         address: "32.324722222222,-87.105277777778",
       }, function(err, response) {
         if (!err) {
+          let foundState = false;
+          let foundCounty = false;
           for(let i = 0; i < response.json.results.length; i+=1){
             for(let j = 0; j < response.json.results[i].address_components.length; j+=1){
               const name = (response.json.results[i].address_components[j].long_name).toLowerCase();
               if(name === 'dallas county'){
-                console.log("Selma")
+                foundCounty = true;
+              }
+              if(name === 'alabama'){
+                foundState = true;
               }
             }
           }
+          if(foundState && foundCounty){
+            console.log("Access Approved!")
+          } else {
+            console.log("Access Denied!")
+          }
         } else {
-          console.log(err.requestUrl);
+          console.log("Network Error :(");
         }
       });
     }

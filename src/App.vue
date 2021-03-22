@@ -18,7 +18,7 @@ export default {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
       } else {
-        console.log("REJECTED")
+        console.log("We couldn't get your location.")
       }
     }
 
@@ -53,7 +53,7 @@ export default {
             console.log("Access Denied!")
           }
         } else {
-          console.log("Network Error :(");
+          console.log("Internal Network Error :(");
         }
       });
     }

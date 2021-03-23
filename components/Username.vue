@@ -11,7 +11,7 @@
         <br /><br />
         <button @click="goToChatPage">Submit</button><br /><br />
         <div>**WARNING**</div><br />
-        <div>
+        <div id="warning-container">
             Choose a unique name. Someone with the same username can
             see your messages and send messages as you.
         </div><br>
@@ -29,8 +29,12 @@ export default {
     methods: {
         goToChatPage(){
             if(this.username === ''){
-                alert(`Username can't be empty`);
-            } else {
+                alert(`Username can't be empty.`);
+            } 
+            else if(new RegExp('^[a-zA-Z0-9_.-]*$').test(this.username) === false){
+                alert(`Username can only be letters and numbers.`);
+            }
+            else {
                 this.$parent.goToChatPage(this.username);
             }
         }
@@ -45,5 +49,9 @@ export default {
         width: 85.41019662496846%;
         margin: auto;
         text-align: center;
+    }
+    #warning-container{
+        width: 85.41019662496846%;
+        margin: auto;
     }
 </style>

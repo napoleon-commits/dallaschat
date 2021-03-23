@@ -15,6 +15,9 @@
             Choose a unique name. Someone with the same username can
             see your messages and send messages as you.
         </div><br>
+        <div id="warning-container">
+            Usernames are case-sensitive.
+        </div><br>
     </div>
 </template>
 

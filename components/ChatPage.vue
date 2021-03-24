@@ -73,6 +73,9 @@ export default {
                 username: dataObject.sender,
                 message: dataObject.message,
             });
+        };
+        this.connection.onclose = () => {
+            this.$parent.goToUsernamePage();
         }
     },
     methods: {

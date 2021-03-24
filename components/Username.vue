@@ -35,7 +35,7 @@ export default {
                 alert(`Username can't be empty.`);
             } 
             else if(new RegExp('^[a-zA-Z0-9_.-]*$').test(this.username) === false){
-                alert(`Username can only be letters and numbers.`);
+                alert(`Username can only be letters and numbers and have no spaces.`);
             }
             else {
                 this.$parent.goToChatPage(this.username);

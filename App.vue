@@ -29,6 +29,9 @@ export default {
             this.username = username;
             this.mode = 'ChatPage';
         },
+        goToUsernamePage(){
+            this.mode = 'Username'
+        }
     }
 }
 </script>

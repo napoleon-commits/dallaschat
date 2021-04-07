@@ -77,6 +77,10 @@ export default {
         this.connection.onclose = () => {
             this.$parent.goToUsernamePage();
         }
+        // keep alive pulse every 30 seconds
+        setInterval((()=>{
+            this.connection.send(JSON.stringify({}));
+        }),1000*30);
     },
     methods: {
         sendMessage: function() {

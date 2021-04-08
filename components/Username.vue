@@ -12,8 +12,8 @@
         <button @click="goToChatPage">Submit</button><br /><br />
         <div>**WARNING**</div><br />
         <div id="warning-container">
-            Choose a unique name. Someone with the same username can
-            see your messages and send messages as you.
+            Choose a unique name. Someone with the same username
+            will override your existing connection.
         </div><br>
         <div id="warning-container">
             No messages are saved.

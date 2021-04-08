@@ -51,7 +51,6 @@
 </template>
 
 <script>
-import PrivateVariables from '../PrivateVariables';
 
 export default {
     name: 'ChatPage',
@@ -60,13 +59,13 @@ export default {
         return {
             chat: [],
             connection: null,
-            PrivateVariables,
+            wssURL: 'wss://fiugl75lt7.execute-api.us-east-1.amazonaws.com/dev?username=',
             receiver: '',
             message: '',
         };
     },
     created(){
-        this.connection = new WebSocket(`${PrivateVariables.wssURL}${this.username}`);
+        this.connection = new WebSocket(`${this.wssURL}${this.username}`);
         this.connection.onmessage = (event) => {
             const dataObject = JSON.parse(event.data);
             this.chat.push({

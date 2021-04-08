@@ -19,7 +19,7 @@ export default {
     },
     data(){
         return {
-            message: "Selma Chat; a texting app made for residents of Selma, Alabama.",
+            message: "Selma Chat; The New Burner Phone.",
             mode: 'Username',
             username: "",
         };

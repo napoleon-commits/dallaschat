@@ -16,6 +16,9 @@
             see your messages and send messages as you.
         </div><br>
         <div id="warning-container">
+            No messages are saved.
+        </div><br>
+        <div id="warning-container">
             Usernames are case-sensitive.
         </div><br>
     </div>

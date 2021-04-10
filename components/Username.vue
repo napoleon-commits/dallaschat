@@ -16,6 +16,9 @@
             will override your existing connection.
         </div><br>
         <div id="warning-container">
+            Usernames are no longer kept when the connection is lost.
+        </div><br>
+        <div id="warning-container">
             No messages are saved.
         </div><br>
         <div id="warning-container">

@@ -62,11 +62,14 @@ export default {
             wssURL: 'wss://fiugl75lt7.execute-api.us-east-1.amazonaws.com/dev?username=',
             receiver: '',
             message: '',
+            counter: 0,
+            intervalFunc: null,
         };
     },
     created(){
         this.connection = new WebSocket(`${this.wssURL}${this.username}`);
         this.connection.onmessage = (event) => {
+            this.counter = 0;
             const dataObject = JSON.parse(event.data);
             this.chat.push({
                 username: dataObject.sender,
@@ -76,14 +79,20 @@ export default {
         this.connection.onclose = () => {
             this.$parent.goToUsernamePage();
         }
-        // keep alive pulse every 30 seconds
-        setInterval((()=>{
+        this.intervalFunc = setInterval((()=>{
+            // keep alive pulse every 30 seconds
             this.connection.send(JSON.stringify({}));
+            this.counter += 1;
+            if(this.counter >= 120) {
+                this.connection.close();
+                clearInterval(this.intervalFunc);
+            }
         }),1000*30);
     },
     methods: {
-        sendMessage: function() {
+        sendMessage() {
             if(this.message.length > 0 && this.receiver.length > 0){
+                this.counter = 0;
                 const messageObject = {
                     sender: this.username,
                     receiver: this.receiver,

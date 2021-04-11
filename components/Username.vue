@@ -24,6 +24,9 @@
         <div id="warning-container">
             Usernames are case-sensitive.
         </div><br>
+        <div id="warning-container">
+            A connection will be lost if the user refreshes the app, if the user exits the app, or if the connection is idle for an hour.
+        </div><br>
     </div>
 </template>
 
